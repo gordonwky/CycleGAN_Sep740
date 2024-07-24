@@ -57,6 +57,12 @@ class BaseOptions():
         # wandb parameters
         parser.add_argument('--use_wandb', action='store_true', help='if specified, then init wandb logging')
         parser.add_argument('--wandb_project_name', type=str, default='CycleGAN-and-pix2pix', help='specify wandb project name')
+        # transfer learning parameters to freeze layers
+        parser.add_argument('--freeze_DA', type=int, default=0, help='number of layers to freeze in DA')
+        parser.add_argument('--freeze_DB', type=int, default=0, help='number of layers to freeze in DB')
+        parser.add_argument('--freeze_GA', type=int, default=0, help='number of layers to freeze in GA')
+        parser.add_argument('--freeze_GB', type=int, default=0, help='number of layers to freeze in GA')
+        parser.add_argument('--freeze_G', type=int, default=0, help='number of layers to freeze in G')
         self.initialized = True
         return parser
 
@@ -128,12 +134,12 @@ class BaseOptions():
         # set gpu ids
         str_ids = opt.gpu_ids.split(',')
         opt.gpu_ids = []
-        for str_id in str_ids:
-            id = int(str_id)
-            if id >= 0:
-                opt.gpu_ids.append(id)
-        if len(opt.gpu_ids) > 0:
-            torch.cuda.set_device(opt.gpu_ids[0])
+        # for str_id in str_ids:
+        #     id = int(str_id)
+        #     if id >= 0:
+        #         opt.gpu_ids.append(id)
+        # if len(opt.gpu_ids) > 0:
+        #     torch.cuda.set_device(opt.gpu_ids[0])
 
         self.opt = opt
         return self.opt
