@@ -61,7 +61,7 @@ class BaseOptions():
         parser.add_argument('--freeze_DA', type=int, default=0, help='number of layers to freeze in DA')
         parser.add_argument('--freeze_DB', type=int, default=0, help='number of layers to freeze in DB')
         parser.add_argument('--freeze_GA', type=int, default=0, help='number of layers to freeze in GA')
-        parser.add_argument('--freeze_GB', type=int, default=0, help='number of layers to freeze in GA')
+        parser.add_argument('--freeze_GB', type=int, default=0, help='number of layers to freeze in GB')
         parser.add_argument('--freeze_G', type=int, default=0, help='number of layers to freeze in G')
         self.initialized = True
         return parser
