@@ -41,6 +41,10 @@ class BaseModel(ABC):
         self.visual_names = []
         self.optimizers = []
         self.image_paths = []
+        self.G_A_freeze_layer = opt.freeze_GA
+        self.G_B_freeze_layer = opt.freeze_GB
+        self.D_A_freeze_layer = opt.freeze_DA
+        self.D_B_freeze_layer = opt.freeze_DB
         self.metric = 0  # used for learning rate policy 'plateau'
 
     @staticmethod
