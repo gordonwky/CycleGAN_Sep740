@@ -38,11 +38,6 @@ def frames_segment(image_folder,model, mp4_name):
         image_path = os.path.join(image_folder, f"frame_{i:05d}.jpg")
         output_predictions = segment_image(image_path, model)
         binary_mask_image = create_binary_mask(output_predictions, class_index = 13)
-        # save the binary mask 
-        # base_binary_name = './VideoTransfer/binary_masked_frames/' + mp4_name 
-        # os.makedirs(base_binary_name,exist_ok=True)
-        # binary_mask_image_folder = os.path.join(base_binary_name, f"mask_{i:05d}.jpg")
-        # binary_mask_image.save(binary_mask_image_folder)
 
         masked_image = apply_mask(image_path, binary_mask_image)
         base_masked_name = './VideoTransfer/masked_frames/' + mp4_name

@@ -129,5 +129,5 @@ if __name__ == '__main__':
         mask_image = create_binary_mask(output, class_index = 13)
         recombined = recombine_images(image_path, transformed_segment_path,mask_image)
         recombined.save(os.path.join(recombined_path, f"frame_{i:05d}.jpg"))
-    
-    frames_to_video(recombined_path, f'{word_before_mp4}_transformed.mp4')
+    frames_to_video('./results/horse2zebra_pretrained/test_latest/images/transformed_frames', './horse2zebra.mp4')
+    # frames_to_video(recombined_path, f'./{word_before_mp4}_transformed.mp4')
